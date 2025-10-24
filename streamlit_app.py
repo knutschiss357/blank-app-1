@@ -12,9 +12,8 @@ Kia ora! My name is Chisato....
 
 import streamlit as st, random, pandas as pd
 
-st.title("🅱️ Hiragana Bingo (5×5)")
+st.title("Hiragana Bingo (5×5)")
 kana = list("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん")
 grid = random.sample(kana, 25)  # 25文字をランダム抽出
 df = pd.DataFrame([grid[i*5:(i+1)*5] for i in range(5)], columns=list("ABCDE"))
 st.dataframe(df, use_container_width=True)
-st.caption("ヒント：印刷したい場合はCSVに書き出す処理をあとで足せます。")
