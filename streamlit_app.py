@@ -5,15 +5,16 @@ import pandas as pd
 # -------------------------------
 # 💬 自己紹介セクション
 # -------------------------------
-st.header("🎈 My App")  # ← 大きすぎるなら st.header にしてもOK
+st.title("🎈 My App")
 
 st.header("About Me")
 st.write("""
 Kia ora! My name is Chisato.  
-言語学習につかえるアプリを作ってみたいです。  
+言語学習につかえるアプリを作ってみたいです。
 """)
 
-st.image("profile.jpg", caption="こんにちは！Chisatoです", width=300)
+# st.image("profile.jpg", caption="こんにちは！Chisatoです", width=300)
+# ↑ 画像を入れない場合はこの行を削除またはコメントアウト！
 
 # -------------------------------
 # 🅱️ ひらがなビンゴセクション
