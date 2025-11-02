@@ -16,40 +16,17 @@ st.write("""
 """)
 
 # -------------------------------
-# 🖼 画像アップロード＆表示セクション（ここを追加）
+# 🖼 画像を直接表示セクション（アップロードボタンなし）
 # -------------------------------
-uploaded_file = st.file_uploader("画像をアップロード", type=["png", "jpg", "jpeg"])
-if uploaded_file is not None:
-    st.image(uploaded_file, caption="アップロードした画像", use_column_width=True)
+st.image(
+    'C:/Users/cyos684/OneDrive - The University of Auckland/2025_/01_Online Nihongo Cafe wawawa 2025/202511/image/my_image.png',
+    caption='直接配置した画像',
+    use_column_width=True
+)
 
 # -------------------------------
 # 🅱️ ひらがなビンゴセクション
 # -------------------------------
 st.subheader("Hiragana Bingo (5×5)")
 
-# 状態管理（何回目のリロードか）
-if "refresh" not in st.session_state:
-    st.session_state.refresh = 0
-
-rng = random.Random(st.session_state.refresh)
-kana = list("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん")
-grid = rng.sample(kana, 25)
-df = pd.DataFrame([grid[i*5:(i+1)*5] for i in range(5)], columns=list("ABCDE"))
-
-# 正方形・左寄せテーブルを作成
-html = "<table style='border-collapse: collapse; margin-left:0;'>"
-for row in df.itertuples(index=False):
-    html += "<tr>"
-    for cell in row:
-        html += ("<td style='border:1px solid #aaa; width:70px; height:70px; "
-                 "text-align:center; font-size:24px;'>{}</td>").format(cell)
-    html += "</tr>"
-html += "</table>"
-
-# ① まずビンゴ表を表示
-st.markdown(html, unsafe_allow_html=True)
-
-# ② その下にボタンを配置（押すとリロード）
-if st.button("🎲 新しいビンゴカードを作る"):
-    st.session_state.refresh += 1
-    st.rerun()
+# ...（以下略）
